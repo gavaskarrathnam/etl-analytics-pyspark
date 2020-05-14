@@ -152,20 +152,6 @@ def write_mysql(df):
 # Get cars data
 def get_cars(cursor):
 
-    mySQL_select_Query = "select brand, model, price from autos.cars"
-    cursor.execute(mySQL_select_Query)
-    cars_records = cursor.fetchmany(2)
-
-    print("Printing 2 rows")
-    for row in cars_records:
-        print("Brand = ", row[0], )
-        print("Model = ", row[1])
-        print("Price  = ", row[2], "\n")
-
-
-# Get cars data
-def get_cars(cursor):
-
     mySQL_select_Query = "select brand, model, price from autos.cars order by dateCreated desc"
     cursor.execute(mySQL_select_Query)
     cars_records = cursor.fetchmany(3)
