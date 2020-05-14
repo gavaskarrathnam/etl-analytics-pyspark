@@ -68,11 +68,6 @@ def initialize_spark():
     return spark
 
 
-# load data frame with out schema
-# def load_DF_WithOut_Schema(spark):
-#   df = spark.read.format("csv").option("header", "true").load("/home/gavaskarrathnam/dataeng/etl-analytics-pyspark/data/autos.csv")
-#   return df
-
 # Load Data Frame with Schema
 def load_df_with_schema(spark):
     schema = StructType([
@@ -103,7 +98,7 @@ def load_df_with_schema(spark):
         .format("csv") \
         .schema(schema)         \
         .option("header", "true") \
-        .load("/home/gavaskarrathnam/dataeng/etl-analytics-pyspark/data/autos.csv")
+        .load(environ["HOME"] + "/data/autos.csv")
 
     print("Data loaded into PySpark", "\n")
     return df
